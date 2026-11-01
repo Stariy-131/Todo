@@ -1,0 +1,94 @@
+.card-container {
+    display: flex;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 20px;
+
+    .card {
+        width: 280px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 1px solid #444141;
+        border-radius: 12px;
+        padding: 16px;
+        position: relative;
+
+        .todo-actions {
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 5%;
+
+            .todo-item {
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                gap: 8px;
+                font-size: 18px;
+
+                span {
+                    height: auto;
+                    font-size: 16px;
+                }
+
+                input {
+                    margin: 0px;
+                }
+            }
+
+            .delete-item {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                gap: 8px;
+
+                button {
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                    padding: 0px;
+                    background-color: red;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .editor {
+        input {
+            height: 40px;
+            width: auto;
+            font-size: 18px;
+            border: 1px solid #444141;
+        }
+
+        textarea {
+            height: 100px;
+            width: auto;
+            font-size: 16px;
+            margin-top: 8px;
+            resize: none;
+            margin: 0px;
+            padding: 5px;
+            border: 1px solid #444141;
+        }
+
+        button {
+            height: 40px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 0px;
+            background-color: green;
+            color: #fff
+        }
+    }
+}
