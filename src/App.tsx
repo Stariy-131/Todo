@@ -21,6 +21,20 @@ export const App = () => {
     }
   })
 
+  const [filter, setFilter] = useState<"0" | "1" | "2">("0")
+
+  const filtrationData = todoData.filter((todo) => {
+    switch (filter) {
+      case "1":
+        return !todo.checked
+      case "2":
+        return todo.checked
+      case "0":
+      default:
+        return true
+    }
+  })
+
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todoData))
   }, [todoData])
@@ -69,6 +83,17 @@ export const App = () => {
       <div>
         <h1>Todo List</h1>
       </div>
+      <div className="filterTab">
+        <button onClick={() => setFilter("0")}>
+          Все
+        </button>
+        <button onClick={() => setFilter("1")}>
+          Не выполненные
+        </button>
+        <button onClick={() => setFilter("2")}>
+          Выполненные
+        </button>
+      </div>
       <div className="card-container">
         <div className="card editor">
           <input
@@ -86,7 +111,7 @@ export const App = () => {
             <button onClick={todoAdd}>Добавить задачу</button>
           </div>
         </div>
-        {todoData.map((item: Todo) => (
+        {filtrationData.map((item: Todo) => (
           <div className="card" key={item.id}>
             <h2>{item.title}</h2>
             <p>{item.description}</p>
